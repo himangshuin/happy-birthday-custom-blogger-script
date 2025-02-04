@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Jinti Kalita!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #ffd700;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ffe6f2, #ffb3d9);
+            min-height: 100vh;
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .launch-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+            transition: all 0.3s ease;
+            margin: 2rem auto;
+        }
+
+        .launch-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255,105,180,0.5);
+        }
+
+        #surprise {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+        }
+
+        .birthday-card {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffffff, #fff5f9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: cardEntrance 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: -100px auto 1rem;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 20px rgba(255,215,0,0.3);
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .decorations {
+            position: fixed;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Enhanced reaction buttons */
+        .reaction-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .reaction-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reaction-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+            background: #ff3d8d;
+        }
+
+        /* Toast styles */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            animation: toastSlide 0.5s ease-out;
+            z-index: 2000;
+        }
+
+        /* Animations */
+        @keyframes cardEntrance {
+            0% { transform: translateY(-50%) scale(0) rotate(-30deg); opacity: 0; }
+            100% { transform: translateY(-50%) scale(1) rotate(0); opacity: 1; }
+        }
+
+        @keyframes toastSlide {
+            from { bottom: -50px; }
+            to { bottom: 20px; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .celebrate-pulse {
+            animation: pulse 1s infinite;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Confetti and Snowfall */
+        .snow, .confetti {
+            position: fixed;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        .snow {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .confetti {
+            font-size: 24px;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) translateX(0); }
+            100% { transform: translateY(100vh) translateX(100px); }
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Heart animation */
+        @keyframes heartFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="launch-btn" onclick="showSurprise()">🎁 Click Here Surprise!</button>
+    </div>
+
+    <div id="surprise">
+        <button class="close-btn" onclick="closeSurprise()">×</button>
+        <div class="birthday-card">
+            <div class="photo-frame">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb6LFCy5UmuM8OWo_7QEUIgvhEoJ0RDMcAmZ47oPbkdJYIoCF853Vga2K8abWz-ycMkK0_SeW_BnpYhCqneZtNTJ95qAt0Fxqysh5ePiCWFrAFFM5vRolb2xjQ2GZYPbSNxebKzVwmaI57vpdzaAIuckd6LOWGnby5dByJLr9OZWUv183FotboC8P0b98y/s320/WhatsApp%20Image%202025-02-04%20at%202.23.57%20PM.jpeg" alt="Jinti Kalita">
+            </div>
+            <h1>🎉 Happy Birthday Jinti! 🎂</h1>
+            <div class="message">
+                <p>Wishing you a day filled with love, laughter, and joy!<br>
+                May all your dreams take flight and every moment be special! 🌟</p>
+            </div>
+            <div class="reaction-buttons">
+                <button class="reaction-btn" onclick="showToast('🎈 You sent a virtual hug!'); addHeartAnimation()">
+                    🤗 Send Hug
+                </button>
+                <button class="reaction-btn" onclick="celebrate()">
+                    🥂 Celebrate
+                </button>
+            </div>
+            <audio id="birthdayAudio" controls autoplay>
+                <source src="https://link.happybirthdaysong.co.in/birthdaysong.in/new/Romantic-Birthday.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById("surprise").style.display = "block";
+            createDecorations();
+            createSnowfall();
+            const audio = document.getElementById('birthdayAudio');
+            audio.play().catch(() => audio.controls = true);
+        }
+
+        function closeSurprise() {
+            document.getElementById("surprise").style.display = "none";
+            document.getElementById('birthdayAudio').pause();
+        }
+
+        function celebrate() {
+            showToast('🎊 Cheers to Jinti!');
+            createConfetti();
+            document.getElementById('birthdayAudio').play();
+            const btn = document.querySelector('[onclick*="Celebrate"]');
+            btn.classList.add('celebrate-pulse');
+            setTimeout(() => btn.classList.remove('celebrate-pulse'), 1000);
+        }
+
+        function createConfetti() {
+            const emojis = ['🎉', '🎊', '✨', '🌸', '💖'];
+            for(let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animation = `confettiFall ${2 + Math.random() * 3}s linear`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        function createSnowfall() {
+            for(let i = 0; i < 100; i++) {
+                const snow = document.createElement('div');
+                snow.className = 'snow';
+                snow.style.left = Math.random() * 100 + 'vw';
+                snow.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snow.style.opacity = Math.random();
+                document.body.appendChild(snow);
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            toast.style.left = `${30 + Math.random() * 40}%`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 2500);
+        }
+
+        function addHeartAnimation() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = '40px';
+            heart.style.animation = 'heartFloat 2s ease-out';
+            heart.style.zIndex = '9999';
+            heart.style.left = `${50 + (Math.random() * 20 - 10)}%`;
+            heart.style.top = `${50 + (Math.random() * 20 - 10)}%`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 2000);
+        }
+    </script>
+</body>
+</html>
