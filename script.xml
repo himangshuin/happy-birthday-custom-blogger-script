@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday Jinti Kalita!</title>
+    <title>Happy Birthday His/Her Name!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
@@ -225,9 +225,9 @@
         <button class="close-btn" onclick="closeSurprise()">×</button>
         <div class="birthday-card">
             <div class="photo-frame">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb6LFCy5UmuM8OWo_7QEUIgvhEoJ0RDMcAmZ47oPbkdJYIoCF853Vga2K8abWz-ycMkK0_SeW_BnpYhCqneZtNTJ95qAt0Fxqysh5ePiCWFrAFFM5vRolb2xjQ2GZYPbSNxebKzVwmaI57vpdzaAIuckd6LOWGnby5dByJLr9OZWUv183FotboC8P0b98y/s320/WhatsApp%20Image%202025-02-04%20at%202.23.57%20PM.jpeg" alt="Jinti Kalita">
+                <img src="https://blogger.googleusercontent.com/img.jpeg" alt="His/Her Name">
             </div>
-            <h1>🎉 Happy Birthday Jinti! 🎂</h1>
+            <h1>🎉 Happy Birthday His/Her Name! 🎂</h1>
             <div class="message">
                 <p>Wishing you a day filled with love, laughter, and joy!<br>
                 May all your dreams take flight and every moment be special! 🌟</p>
@@ -261,7 +261,7 @@
         }
 
         function celebrate() {
-            showToast('🎊 Cheers to Jinti!');
+            showToast('🎊 Cheers to His/Her Name!');
             createConfetti();
             document.getElementById('birthdayAudio').play();
             const btn = document.querySelector('[onclick*="Celebrate"]');
